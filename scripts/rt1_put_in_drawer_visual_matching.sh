@@ -1,3 +1,4 @@
+gpu_id=0
 # shader_dir=rt means that we turn on ray-tracing rendering; this is quite crucial for the open / close drawer task as policies often rely on shadows to infer depth
 
 declare -a ckpt_paths=(
@@ -25,7 +26,7 @@ EXTRA_ARGS="--enable-raytracing --additional-env-build-kwargs station_name=mk_st
 
 EvalOverlay() {
 # A0
-python simpler_env/main_inference.py --policy-model rt1 --ckpt-path ${ckpt_path} \
+CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model rt1 --ckpt-path ${ckpt_path} \
   --robot google_robot_static \
   --control-freq 3 --sim-freq 513 --max-episode-steps 200 \
   --env-name ${env_name} --scene-name dummy_drawer \
@@ -36,7 +37,7 @@ python simpler_env/main_inference.py --policy-model rt1 --ckpt-path ${ckpt_path}
   ${EXTRA_ARGS}
 
 # B0
-python simpler_env/main_inference.py --policy-model rt1 --ckpt-path ${ckpt_path} \
+CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model rt1 --ckpt-path ${ckpt_path} \
   --robot google_robot_static \
   --control-freq 3 --sim-freq 513 --max-episode-steps 200 \
   --env-name ${env_name} --scene-name dummy_drawer \
@@ -47,7 +48,7 @@ python simpler_env/main_inference.py --policy-model rt1 --ckpt-path ${ckpt_path}
   ${EXTRA_ARGS}
 
 # C0
-python simpler_env/main_inference.py --policy-model rt1 --ckpt-path ${ckpt_path} \
+CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model rt1 --ckpt-path ${ckpt_path} \
   --robot google_robot_static \
   --control-freq 3 --sim-freq 513 --max-episode-steps 200 \
   --env-name ${env_name} --scene-name dummy_drawer \
