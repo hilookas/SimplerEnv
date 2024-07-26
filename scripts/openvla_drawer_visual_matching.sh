@@ -1,13 +1,7 @@
 gpu_id=0
 # shader_dir=rt means that we turn on ray-tracing rendering; this is quite crucial for the open / close drawer task as policies often rely on shadows to infer depth
-
-
-
 declare -a ckpt_paths=(
-"./checkpoints/rt_1_tf_trained_for_000400120/"
-"./checkpoints/rt_1_tf_trained_for_000058240/"
-"./checkpoints/rt_1_x_tf_trained_for_002272480_step/"
-"./checkpoints/rt_1_tf_trained_for_000001120/"
+"openvla/openvla-7b"
 )
 
 declare -a env_names=(
@@ -28,7 +22,7 @@ EXTRA_ARGS="--enable-raytracing --additional-env-build-kwargs station_name=mk_st
 
 EvalOverlay() {
 # A0
-CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model rt1 --ckpt-path ${ckpt_path} \
+CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model openvla --ckpt-path ${ckpt_path} \
   --robot google_robot_static \
   --control-freq 3 --sim-freq 513 --max-episode-steps 113 \
   --env-name ${env_name} --scene-name dummy_drawer \
@@ -39,7 +33,7 @@ CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-mod
   ${EXTRA_ARGS}
 
 # A1
-CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model rt1 --ckpt-path ${ckpt_path} \
+CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model openvla --ckpt-path ${ckpt_path} \
   --robot google_robot_static \
   --control-freq 3 --sim-freq 513 --max-episode-steps 113 \
   --env-name ${env_name} --scene-name dummy_drawer \
@@ -50,7 +44,7 @@ CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-mod
   ${EXTRA_ARGS}
 
 # A2
-CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model rt1 --ckpt-path ${ckpt_path} \
+CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model openvla --ckpt-path ${ckpt_path} \
   --robot google_robot_static \
   --control-freq 3 --sim-freq 513 --max-episode-steps 113 \
   --env-name ${env_name} --scene-name dummy_drawer \
@@ -61,7 +55,7 @@ CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-mod
   ${EXTRA_ARGS}
 
 # B0
-CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model rt1 --ckpt-path ${ckpt_path} \
+CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model openvla --ckpt-path ${ckpt_path} \
   --robot google_robot_static \
   --control-freq 3 --sim-freq 513 --max-episode-steps 113 \
   --env-name ${env_name} --scene-name dummy_drawer \
@@ -72,7 +66,7 @@ CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-mod
   ${EXTRA_ARGS}
 
 # B1
-CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model rt1 --ckpt-path ${ckpt_path} \
+CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model openvla --ckpt-path ${ckpt_path} \
   --robot google_robot_static \
   --control-freq 3 --sim-freq 513 --max-episode-steps 113 \
   --env-name ${env_name} --scene-name dummy_drawer \
@@ -83,7 +77,7 @@ CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-mod
   ${EXTRA_ARGS}
 
 # B2
-CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model rt1 --ckpt-path ${ckpt_path} \
+CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model openvla --ckpt-path ${ckpt_path} \
   --robot google_robot_static \
   --control-freq 3 --sim-freq 513 --max-episode-steps 113 \
   --env-name ${env_name} --scene-name dummy_drawer \
@@ -94,7 +88,7 @@ CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-mod
   ${EXTRA_ARGS}
 
 # C0
-CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model rt1 --ckpt-path ${ckpt_path} \
+CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model openvla --ckpt-path ${ckpt_path} \
   --robot google_robot_static \
   --control-freq 3 --sim-freq 513 --max-episode-steps 113 \
   --env-name ${env_name} --scene-name dummy_drawer \
@@ -105,7 +99,7 @@ CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-mod
   ${EXTRA_ARGS}
 
 # C1
-CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model rt1 --ckpt-path ${ckpt_path} \
+CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model openvla --ckpt-path ${ckpt_path} \
   --robot google_robot_static \
   --control-freq 3 --sim-freq 513 --max-episode-steps 113 \
   --env-name ${env_name} --scene-name dummy_drawer \
@@ -116,7 +110,7 @@ CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-mod
   ${EXTRA_ARGS}
 
 # C2
-CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model rt1 --ckpt-path ${ckpt_path} \
+CUDA_VISIBLE_DEVICES=${gpu_id} python simpler_env/main_inference.py --policy-model openvla --ckpt-path ${ckpt_path} \
   --robot google_robot_static \
   --control-freq 3 --sim-freq 513 --max-episode-steps 113 \
   --env-name ${env_name} --scene-name dummy_drawer \
