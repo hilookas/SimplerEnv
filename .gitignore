@@ -27,3 +27,6 @@ dist/
 .vscode
 
 imgui.ini
+
+scripts/*.log
+results
