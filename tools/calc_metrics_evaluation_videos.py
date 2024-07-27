@@ -21,28 +21,31 @@ def calc_pick_coke_can_stats(root_result_dir):
     # If you use a new checkpoint, please update the real evaluation results here
     coke_can_real_success = {
         "horizontal": {
-            "rt-2-x": 0.92,
-            "rt-1-converged": 0.96,
-            "rt-1-15pct": 1.0,
-            "rt-1-x": 0.88,
-            "rt-1-begin": 0.20,
-            "octo-base": 0.44,
+            # "rt-2-x": 0.92,
+            # "rt-1-converged": 0.96,
+            # "rt-1-15pct": 1.0,
+            # "rt-1-x": 0.88,
+            # "rt-1-begin": 0.20,
+            # "octo-base": 0.44,
+            "openvla": 0,
         },
         "vertical": {
-            "rt-2-x": 0.80,
-            "rt-1-converged": 0.88,
-            "rt-1-15pct": 0.96,
-            "rt-1-x": 0.56,
-            "rt-1-begin": 0.00,
-            "octo-base": 0.20,
+            # "rt-2-x": 0.80,
+            # "rt-1-converged": 0.88,
+            # "rt-1-15pct": 0.96,
+            # "rt-1-x": 0.56,
+            # "rt-1-begin": 0.00,
+            # "octo-base": 0.20,
+            "openvla": 0,
         },
         "standing": {
-            "rt-2-x": 1.00,
-            "rt-1-converged": 0.72,
-            "rt-1-15pct": 0.80,
-            "rt-1-x": 0.84,
-            "rt-1-begin": 0.20,
-            "octo-base": 0.24,
+            # "rt-2-x": 1.00,
+            # "rt-1-converged": 0.72,
+            # "rt-1-15pct": 0.80,
+            # "rt-1-x": 0.84,
+            # "rt-1-begin": 0.20,
+            # "octo-base": 0.24,
+            "openvla": 0,
         },
     }
 
@@ -276,12 +279,13 @@ def calc_move_near_stats(root_result_dir):
     print("***Move Near results***")
     # If you use a new checkpoint, please update the real evaluation results here
     move_near_real_success = {
-        "rt-2-x": 0.733,
-        "rt-1-converged": 0.633,
-        "rt-1-15pct": 0.583,
-        "rt-1-x": 0.45,
-        "rt-1-begin": 0.017,
-        "octo-base": 0.35,
+        # "rt-2-x": 0.733,
+        # "rt-1-converged": 0.633,
+        # "rt-1-15pct": 0.583,
+        # "rt-1-x": 0.45,
+        # "rt-1-begin": 0.017,
+        # "octo-base": 0.35,
+        "openvla": 0,
     }
 
     ckpt_alias_keys = list(move_near_real_success.keys())
@@ -407,20 +411,22 @@ def calc_drawer_stats(root_result_dir):
     # If you use a new checkpoint, please update the real evaluation results here
     drawer_real_success = {
         "open": {
-            "rt-2-x": 0.333,
-            "rt-1-converged": 0.815,
-            "rt-1-15pct": 0.704,
-            "rt-1-x": 0.519,
-            "rt-1-begin": 0.000,
-            "octo-base": 0.148,
+            # "rt-2-x": 0.333,
+            # "rt-1-converged": 0.815,
+            # "rt-1-15pct": 0.704,
+            # "rt-1-x": 0.519,
+            # "rt-1-begin": 0.000,
+            # "octo-base": 0.148,
+            "openvla": 0,
         },
         "close": {
-            "rt-2-x": 0.630,
-            "rt-1-converged": 0.926,
-            "rt-1-15pct": 0.889,
-            "rt-1-x": 0.741,
-            "rt-1-begin": 0.000,
-            "octo-base": 0.519,
+            # "rt-2-x": 0.630,
+            # "rt-1-converged": 0.926,
+            # "rt-1-15pct": 0.889,
+            # "rt-1-x": 0.741,
+            # "rt-1-begin": 0.000,
+            # "octo-base": 0.519,
+            "openvla": 0,
         },
     }
 
@@ -636,12 +642,13 @@ def calc_long_horizon_apple_in_drawer_stats(root_result_dir):
     # If you use a new checkpoint, please update the real evaluation results here
     drawer_real_success = {
         "put_apple_into_top_drawer": {
-            "rt-2-x": 0.074,
-            "rt-1-converged": 0.185,
-            "rt-1-15pct": 0.185,
-            "rt-1-x": 0.407,
-            "rt-1-begin": 0.000,
-            "octo-base": 0.000,
+            # "rt-2-x": 0.074,
+            # "rt-1-converged": 0.185,
+            # "rt-1-15pct": 0.185,
+            # "rt-1-x": 0.407,
+            # "rt-1-begin": 0.000,
+            # "octo-base": 0.000,
+            "openvla": 0,
         },
     }
 
@@ -1015,14 +1022,15 @@ def calc_bridge_put_on_env_stats(root_result_dir):
 # Define checkpoint alias-to-directory mapping; If you use a new checkpoint, please update the dict
 
 CKPT_MAPPING = {
-    "rt-2-x": "rt_2_x",
-    "rt-1-converged": "rt_1_tf_trained_for_000400120",
-    "rt-1-15pct": "rt_1_tf_trained_for_000058240",
-    "rt-1-x": "rt_1_x_tf_trained_for_002272480_step",
-    "rt-1-begin": "rt_1_tf_trained_for_000001120",
-    "octo-base": "octo-base",
-    "octo-small": "octo-small",
-    "octo-server": "octo-server",
+    # "rt-2-x": "rt_2_x",
+    # "rt-1-converged": "rt_1_tf_trained_for_000400120",
+    # "rt-1-15pct": "rt_1_tf_trained_for_000058240",
+    # "rt-1-x": "rt_1_x_tf_trained_for_002272480_step",
+    # "rt-1-begin": "rt_1_tf_trained_for_000001120",
+    # "octo-base": "octo-base",
+    # "octo-small": "octo-small",
+    # "octo-server": "octo-server",
+    "openvla": "openvla-7b",
 }
 
 parser = argparse.ArgumentParser()
