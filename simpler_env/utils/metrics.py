@@ -225,5 +225,8 @@ def get_dir_stats(
             results.append(1)
         elif succ_fail_pattern[1] in fname:
             results.append(0)
+    if results == []:
+        return [0] 
+    else:
+        return results
 
-    return results

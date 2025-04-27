@@ -5,7 +5,7 @@ import os
 import jax
 import matplotlib.pyplot as plt
 import numpy as np
-from octo.model.octo_model import OctoModel
+# from octo_model import OctoModel
 import tensorflow as tf
 from transformers import AutoTokenizer
 from transforms3d.euler import euler2axangle
@@ -16,7 +16,7 @@ from simpler_env.utils.action.action_ensemble import ActionEnsembler
 class OctoInference:
     def __init__(
         self,
-        model: Optional[OctoModel] = None,
+        model,
         dataset_id: Optional[str] = None,
         model_type: str = "octo-base",
         policy_setup: str = "widowx_bridge",

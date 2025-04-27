@@ -21,7 +21,7 @@ from simpler_env.utils.env.observation_utils import get_image_from_maniskill2_ob
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument("--policy", default="rt1", choices=["rt1", "octo-base", "octo-small"])
+parser.add_argument("--policy", default="rt1", choices=["rt1", "octo-base", "octo-small", "openvla/openvla-7b", "sofar"])
 parser.add_argument(
     "--ckpt-path",
     type=str,
@@ -37,7 +37,7 @@ parser.add_argument("--tf-memory-limit", type=int, default=3072)
 parser.add_argument("--n-trajs", type=int, default=10)
 
 args = parser.parse_args()
-if args.policy in ["octo-base", "octo-small"]:
+if args.policy in ["octo-base", "octo-small", "openvla/openvla-7b"]:
     if args.ckpt_path in [None, "None"] or "rt_1_x" in args.ckpt_path:
         args.ckpt_path = args.policy
 if args.ckpt_path[-1] == "/":
@@ -75,6 +75,12 @@ elif "octo" in args.policy:
     from simpler_env.policies.octo.octo_model import OctoInference
 
     model = OctoInference(model_type=args.ckpt_path, policy_setup=policy_setup, init_rng=0)
+elif "openvla" in args.policy:
+    from simpler_env.policies.openvla.openvla_model import OpenVLAInference
+
+    model = OpenVLAInference(saved_model_path=args.ckpt_path, policy_setup=policy_setup)
+elif "sofar" in args.policy:
+    model = 'sofar'
 else:
     raise NotImplementedError()
 

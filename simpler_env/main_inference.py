@@ -19,46 +19,23 @@ if __name__ == "__main__":
             gpus[0],
             [tf.config.LogicalDeviceConfiguration(memory_limit=args.tf_memory_limit)],
         )
-
+    print(f"**** {args.policy_model} ****")
     # policy model creation; update this if you are using a new policy model
-    if args.policy_model == "rt1":
-        from simpler_env.policies.rt1.rt1_model import RT1Inference
-        assert args.ckpt_path is not None
-        model = RT1Inference(
-            saved_model_path=args.ckpt_path,
-            policy_setup=args.policy_setup,
-            action_scale=args.action_scale,
-        )
-    elif "octo" in args.policy_model:
-        if args.ckpt_path is None or args.ckpt_path == "None":
-            args.ckpt_path = args.policy_model
-        if "server" in args.policy_model:
-            from simpler_env.policies.octo.octo_server_model import OctoServerInference
-            model = OctoServerInference(
-                model_type=args.ckpt_path,
-                policy_setup=args.policy_setup,
-                action_scale=args.action_scale,
-            )
-        else:
-            from simpler_env.policies.octo.octo_model import OctoInference
-            model = OctoInference(
-                model_type=args.ckpt_path,
-                policy_setup=args.policy_setup,
-                init_rng=args.octo_init_rng,
-                action_scale=args.action_scale,
-            )
-    elif args.policy_model == "openvla":
-        from simpler_env.policies.openvla.openvla_model import OpenVLAInference
-        assert args.ckpt_path is not None
-        model = OpenVLAInference(
-            saved_model_path=args.ckpt_path,
-            policy_setup=args.policy_setup,
-            action_scale=args.action_scale,
-        )
+
+    if args.policy_model == "sofar":
+        model = "sofar"
+    elif args.policy_model == "sofar_widowx":
+        model = "sofar_widowx"
     else:
         raise NotImplementedError()
 
+    if args.policy_model == "sofar_widowx":
+        from simpler_env.evaluation.maniskill2_evaluator_sofar_widowx import maniskill2_evaluator_sofar_widowx
+        success_arr = maniskill2_evaluator_sofar_widowx(model, args)
+    elif args.policy_model == "sofar":
+        from simpler_env.evaluation.maniskill2_evaluator_sofar import maniskill2_evaluator_sofar
+        success_arr = maniskill2_evaluator_sofar(model, args)
+    else:
+        success_arr = maniskill2_evaluator(model, args)
     # run real-to-sim evaluation
-    success_arr = maniskill2_evaluator(model, args)
-    print(args)
     print(" " * 10, "Average success", np.mean(success_arr))

@@ -1,3 +1,18 @@
 [submodule "ManiSkill2_real2sim"]
 	path = ManiSkill2_real2sim
 	url = https://github.com/simpler-env/ManiSkill2_real2sim
+[submodule "MinkowskiEngine"]
+	path = MinkowskiEngine
+	url = https://github.com/hilookas/MinkowskiEngine
+[submodule "graspnetAPI"]
+	path = graspnetAPI
+	url = https://github.com/hilookas/graspnetAPI
+[submodule "SoFar"]
+	path = SoFar
+	url = https://github.com/hilookas/SoFar
+[submodule "pytorch3d"]
+	path = pytorch3d
+	url = https://github.com/facebookresearch/pytorch3d
+[submodule "GSNet"]
+	path = GSNet
+	url = https://github.com/hilookas/graspness_unofficial
